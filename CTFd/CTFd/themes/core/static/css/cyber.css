@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+:root {
+  --neon-green: #00ff41;
+  --neon-glow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.2);
+  --dark-bg: #0a0a0a;
+  --card-bg: rgba(15, 15, 15, 0.85);
+  --border-color: rgba(0, 255, 65, 0.2);
+}
+
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/themes/core/static/img/cyber_bg.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #e0e0e0;
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 2px solid var(--neon-green);
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+}
+
+.navbar-brand, .nav-link {
+  color: var(--neon-green) !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  text-shadow: var(--neon-glow);
+  color: #fff !important;
+}
+
+/* Challenges & Cards */
+.card, .modal-content {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--neon-green) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: var(--neon-green);
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary, .btn-outline-secondary {
+  background: transparent !important;
+  border: 1px solid var(--neon-green) !important;
+  color: var(--neon-green) !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .btn-outline-secondary:hover {
+  background: var(--neon-green) !important;
+  color: #000 !important;
+  box-shadow: var(--neon-glow);
+}
+
+/* Scoreboard & Tables */
+table {
+  color: #e0e0e0 !important;
+}
+
+th {
+  color: var(--neon-green) !important;
+  border-bottom: 2px solid var(--neon-green) !important;
+}
+
+td {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-green);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
+}
+
+/* Panels & Forms */
+.cyber-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+}
+
+.form-control {
+  background: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid var(--border-color) !important;
+  color: #fff !important;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.form-control:focus {
+  border-color: var(--neon-green) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3) !important;
+}
+
+label, .form-label {
+  color: var(--neon-green) !important;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Jumbotron Overrides */
+.jumbotron {
+  background: transparent !important;
+  padding: 4rem 0;
+}
+
+.jumbotron h1 {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+

@@ -2,7 +2,32 @@
 
 {% block content %}
   <div class="container">
-    {{ content | safe }}
+    {% if request.path == "/" or title == "index" %}
+      <div class="row min-vh-50 d-flex align-items-center justify-content-center">
+          <div class="col-md-10 text-center py-5">
+              <div class="cyber-portal-container mb-4">
+                  <img class="img-fluid mx-auto d-block mb-4" 
+                       style="max-width: 400px; filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.6));" 
+                       src="{{ url_for('views.themes', theme='core', path='img/LOGO MZYAN.png') }}" />
+              </div>
+              <h1 class="display-3 fw-bold mb-2 text-uppercase" 
+                  style="color: #00ff41; text-shadow: 0 0 15px rgba(0, 255, 65, 0.5); letter-spacing: 5px;">
+                  CyberGuardians
+              </h1>
+              <p class="lead mb-5" style="font-family: 'Roboto Mono', monospace; color: #e0e0e0; letter-spacing: 2px;">
+                  WELCOME GENTLEMEN. THE SYSTEM IS ONLINE.
+              </p>
+              <div class="mt-4">
+                  <a href="{{ url_for('challenges.listing') }}" class="btn btn-lg px-5 py-3 shadow-lg" 
+                     style="border: 2px solid #00ff41; color: #00ff41; background: rgba(0, 255, 65, 0.1); font-weight: bold; text-transform: uppercase; transition: all 0.3s ease;">
+                      INITIALIZE CHALLENGE
+                  </a>
+              </div>
+          </div>
+      </div>
+    {% else %}
+      {{ content | safe }}
+    {% endif %}
   </div>
 {% endblock %}
 

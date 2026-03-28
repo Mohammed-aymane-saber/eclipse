@@ -189,7 +189,7 @@ def setup():
             page = Pages(title=ctf_name, route="index", content="", draft=False)
 
             # Upload banner
-            default_ctf_banner_location = url_for("views.themes", path="img/logo.png")
+            default_ctf_banner_location = url_for("views.themes", path="img/LOGO MZYAN.png")
             ctf_banner = request.files.get("ctf_banner")
             if ctf_banner:
                 f = upload_file(file=ctf_banner, page_id=page.id)
@@ -197,20 +197,26 @@ def setup():
                 set_config("ctf_banner", f.location)
 
             # Splice in our banner
-            index = f"""<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <img class="w-100 mx-auto d-block" style="max-width: 500px;padding: 50px;padding-top: 14vh;" src="{default_ctf_banner_location}" />
-        <h3 class="text-center">
-            <p>A cool CTF platform from <a href="https://ctfd.io">ctfd.io</a></p>
-            <p>Follow us on social media:</p>
-            <a href="https://twitter.com/ctfdio"><i class="fab fa-twitter fa-2x" aria-hidden="true"></i></a>&nbsp;
-            <a href="https://facebook.com/ctfdio"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a>&nbsp;
-            <a href="https://github.com/ctfd"><i class="fab fa-github fa-2x" aria-hidden="true"></i></a>
-        </h3>
-        <br>
-        <h4 class="text-center">
-            <a href="admin">Click here</a> to login and setup your CTF
-        </h4>
+            index = f"""<div class="row min-vh-50 d-flex align-items-center justify-content-center">
+    <div class="col-md-10 text-center py-5">
+        <div class="cyber-portal-container mb-4">
+            <img class="img-fluid mx-auto d-block mb-4" 
+                 style="max-width: 400px; filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.6));" 
+                 src="{default_ctf_banner_location}" />
+        </div>
+        <h1 class="display-3 fw-bold mb-2 text-uppercase" 
+            style="color: #00ff41; text-shadow: 0 0 15px rgba(0, 255, 65, 0.5); letter-spacing: 5px;">
+            CyberGuardians
+        </h1>
+        <p class="lead mb-5" style="font-family: 'Roboto Mono', monospace; color: #e0e0e0; letter-spacing: 2px;">
+            WELCOME GENTLEMEN. THE SYSTEM IS ONLINE.
+        </p>
+        <div class="mt-4">
+            <a href="/challenges" class="btn btn-lg px-5 py-3" 
+               style="border: 2px solid #00ff41; color: #00ff41; background: rgba(0, 255, 65, 0.1); font-weight: bold; text-transform: uppercase; transition: all 0.3s ease;">
+                INITIALIZE CHALLENGE
+            </a>
+        </div>
     </div>
 </div>"""
             page.content = index

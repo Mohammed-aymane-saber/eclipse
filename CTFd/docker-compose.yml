@@ -1,4 +1,4 @@
-version: '3.7'
+
 
 services:
   ctfd:
@@ -16,12 +16,6 @@ services:
       - ACCESS_LOG=-
       - ERROR_LOG=-
       - REVERSE_PROXY=true
-      - REVERSE_PROXY=true
-      - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/1479901321342619782/e_LYI8H-JyLC-EQPybHcvZJW5C4HinkMqd5bA4eMbPbZ6nY5fq4bg6s4iJdPJ4k9j8v6
-      - DISCORD_WEBHOOK_LIMIT=3
-      - DISCORD_WEBHOOK_MESSAGE=🏁 **{user}** solved **{challenge}** in **{category}** for **{value}** points — **{fsolves} solve**!
-      - DISCORD_WEBHOOK_CHALL=true
-      - DISCORD_WEBHOOK_CHALL_MESSAGE=📢 **{challenge}** (**{category}**) has been **{action}**!
     volumes:
       - .data/CTFd/logs:/var/log/CTFd
       - .data/CTFd/uploads:/var/uploads
@@ -39,7 +33,7 @@ services:
     volumes:
       - ./conf/nginx/http.conf:/etc/nginx/nginx.conf
     ports:
-      - 80:80
+      - 8081:80
     depends_on:
       - ctfd
 
@@ -95,7 +89,7 @@ services:
     ]
     ports:
       - "10000-10100:10000-10100"
-      - 8080:8080
+      - 8888:8080
     networks:
       frp:
       default:
@@ -108,5 +102,5 @@ networks:
         internal: true
     containers:
         internal: true
-        driver: overlay
+        driver: bridge
         attachable: true
