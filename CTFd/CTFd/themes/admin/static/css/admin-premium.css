@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap');
+
+:root {
+  --admin-bg: #f8fafc;
+  --admin-sidebar: #0f172a;
+  --admin-primary: #4f46e5;
+  --admin-border: #e2e8f0;
+  --admin-card-bg: #ffffff;
+  --admin-text-main: #1e293b;
+  --admin-text-muted: #64748b;
+}
+
+body {
+  background-color: var(--admin-bg);
+  color: var(--admin-text-main);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar & Global Navigation */
+.navbar {
+  background-color: var(--admin-sidebar) !important;
+  border-bottom: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 1.5rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #fff !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover, .nav-item.active .nav-link {
+  color: #fff !important;
+}
+
+/* Main Content Area */
+main {
+  padding-top: 5rem;
+}
+
+/* Cards & Jumbotron */
+.jumbotron {
+  background: transparent !important;
+  border-bottom: 1px solid var(--admin-border);
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+.jumbotron h1 {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+/* Data Containers/Panels */
+.container, .container-fluid {
+  max-width: 1400px;
+}
+
+.card, .modal-content {
+  background: var(--admin-card-bg) !important;
+  border: 1px solid var(--admin-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #f1f5f9 !important;
+  border-bottom: 1px solid var(--admin-border) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--admin-text-muted);
+}
+
+/* Data Tables */
+.table {
+  background: var(--admin-card-bg);
+  margin-bottom: 0;
+}
+
+.table thead th {
+  background: #f1f5f9;
+  color: var(--admin-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--admin-border);
+  padding: 1rem;
+}
+
+.table tbody td {
+  padding: 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fafafa;
+}
+
+/* Buttons & Actions */
+.btn-primary {
+  background-color: var(--admin-primary) !important;
+  border: 0 !important;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #4338ca !important;
+  transform: translateY(-1px);
+}
+
+.btn-outline-secondary {
+  border-color: var(--admin-border) !important;
+  color: var(--admin-text-muted) !important;
+  border-radius: 8px;
+}
+
+/* Monospace Helpers */
+.monospace, code, .badge-secondary {
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+/* KPI Cards (Statistics) */
+.statistics-summary {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.kpi-card {
+  background: #fff;
+  border: 1px solid var(--admin-border);
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 160px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.kpi-card h5 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+}
+
+.kpi-card small {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--admin-text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Charts & Graphs Container */
+#solves-graph, #score-distribution-graph, #solve-percentages-graph, 
+#keys-pie-graph, #categories-pie-graph, #points-pie-graph {
+  background: #fff;
+  border: 1px solid var(--admin-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Modal Overrides */
+.modal-header {
+  background: #f1f5f9;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--admin-border);
+}
+
