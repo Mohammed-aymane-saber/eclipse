@@ -26,9 +26,9 @@
 	<div class="form-group">
 		<label>
 			Author<br>
-			<small class="form-text text-muted">Name of the person who created this challenge</small>
+			<small class="form-text text-muted">Creator of this challenge</small>
 		</label>
-		<input type="text" class="form-control" name="author" value="{{ challenge.author | default('', true) }}" placeholder="e.g. John Doe">
+		<input type="text" class="form-control" name="author" value="{{ challenge.author | default(User.name, true) }}" readonly>
 	</div>
 	{% endblock %}
 
