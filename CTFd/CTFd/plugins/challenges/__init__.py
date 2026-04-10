@@ -117,6 +117,8 @@ class BaseChallenge(object):
             "minimum": challenge.minimum if challenge.function != "static" else None,
             "function": challenge.function,
             "type": challenge.type,
+            "author": challenge.author,
+            "difficulty": challenge.difficulty,
             "type_data": {
                 "id": cls.id,
                 "name": cls.name,

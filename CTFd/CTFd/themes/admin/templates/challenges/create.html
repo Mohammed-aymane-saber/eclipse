@@ -26,6 +26,35 @@
 	</div>
 	{% endblock %}
 
+	{% block author %}
+	<div class="form-group">
+		<label>
+			Author:<br>
+			<small class="form-text text-muted">
+				Name of the person who created this challenge
+			</small>
+		</label>
+		<input type="text" class="form-control" name="author" placeholder="e.g. John Doe">
+	</div>
+	{% endblock %}
+
+	{% block difficulty %}
+	<div class="form-group">
+		<label>
+			Difficulty:<br>
+			<small class="form-text text-muted">
+				Estimated difficulty level of this challenge
+			</small>
+		</label>
+		<select class="form-control custom-select" name="difficulty">
+			<option value="easy">Easy</option>
+			<option value="medium" selected>Medium</option>
+			<option value="hard">Hard</option>
+			<option value="insane">Insane</option>
+		</select>
+	</div>
+	{% endblock %}
+
 
 	{% block message %}
 	<div class="form-group">

@@ -126,6 +126,8 @@ class Challenges(db.Model):
     decay = db.Column(db.Integer, nullable=True)
     position = db.Column(db.Integer, nullable=False, default=0)
     function = db.Column(db.String(32), default="static")
+    author = db.Column(db.String(128), nullable=True)
+    difficulty = db.Column(db.String(32), nullable=True, default="medium")
 
     requirements = db.Column(db.JSON)
 
