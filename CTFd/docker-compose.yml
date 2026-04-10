@@ -52,6 +52,19 @@ services:
     # This command is required to set important mariadb defaults
     command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci, --wait_timeout=28800, --log-warnings=0]
 
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_HOST=db
+    depends_on:
+      - db
+    networks:
+        internal:
+        default:
+
   cache:
     image: redis:4
     restart: always
@@ -60,39 +73,7 @@ services:
     networks:
         internal:
 
-  frpc:
-    image: frankli0324/frp:frpc
-    restart: always
-    command: [
-      "--server_addr=frps",
-      "--server_port=7000",
-      "--token=your_token",
-      "--admin_addr=0.0.0.0",
-      "--admin_port=7000",
-      "--admin_user=frank",
-      "--admin_pwd=qwer",
-    ]
-    networks:
-      frp:
-      internal:
-      containers:
 
-  frps:
-    image: frankli0324/frp:frps
-    restart: always
-    command: [
-      "--bind_addr=0.0.0.0",
-      "--bind_port=7000",
-      "--token=your_token",
-      "--subdomain_host=127.0.0.1.nip.io",
-      "--vhost_http_port=8080",
-    ]
-    ports:
-      - "10000-10100:10000-10100"
-      - 8888:8080
-    networks:
-      frp:
-      default:
 
 networks:
     default:
@@ -104,48 +85,3 @@ networks:
         internal: true
         driver: bridge
         attachable: true
-name: Deploy CTFd
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  deploy:
-    name: Deploy to DigitalOcean
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy via SSH
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: 22
-          script: |
-            set -e
-            cd ${{ secrets.DEPLOY_PATH }}
-
-            echo ">>> Pull latest code"
-            git fetch origin main
-            git reset --hard origin/main
-
-            echo ">>> Build & restart containers"
-            docker compose down --remove-orphans
-            docker compose build --no-cache
-            docker compose up -d
-
-            echo ">>> Health check"
-            sleep 10
-            docker compose ps | grep -E "(Exit|unhealthy)" && exit 1 || echo "All containers running"
-
-            echo ">>> Cleanup old images"
-            docker image prune -f
-
-            echo ">>> Status"
-            docker compose ps
