@@ -1,7 +1,7 @@
 """Add test column to dynamic_challenges
 
 Revision ID: f123456789ab
-Revises: eb68f277ab61
+Revises: 93284ed9c099
 Create Date: 2026-04-10 16:05:00.000000
 
 """
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from CTFd.plugins.migrations import get_columns_for_table
 
 revision = "f123456789ab"
-down_revision = "eb68f277ab61"
+down_revision = "93284ed9c099"
 branch_labels = None
 depends_on = None
 
